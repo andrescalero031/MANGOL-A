@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5eee2">
+  <meta name="description" content="Mangolía: antojos frutales preparados con mucho sabor. Mangos locos, vasos de frutas, bandejas y bowls con toppings.">
+  <title>Mangolía | Antojos frutales</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f7f0e5;
+      --paper: #fffaf2;
+      --olive: #586443;
+      --deep: #343c2b;
+      --yellow: #e8c96b;
+      --peach: #f0c7a4;
+      --muted: #777663;
+      --line: #e8dfd0;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--deep); font-family: "DM Sans", sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    .announcement { text-align: center; background: var(--olive); color: #fffaf2; padding: 9px 16px; font-size: 11px; letter-spacing: .13em; text-transform: uppercase; }
+    header { max-width: 1180px; margin: auto; padding: 22px 6%; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-family: "Playfair Display", serif; font-size: 28px; font-weight: 600; letter-spacing: -.04em; }
+    .brand-fruit { width: 34px; height: 34px; border-radius: 55% 45% 58% 42%; transform: rotate(-25deg); background: var(--yellow); position: relative; display: inline-block; }
+    .brand-fruit:before { content:""; position:absolute; width:13px; height:7px; background:var(--olive); border-radius:100% 0 100% 0; top:-3px; left:15px; transform:rotate(-12deg); }
+    .brand-fruit:after { content:""; position:absolute; width:7px; height:7px; background:#fff5d5; border-radius:50%; top:10px; left:8px; opacity:.9; }
+    nav { display:flex; gap:28px; align-items:center; font-size:13px; color:#565947; }
+    nav a:hover { color:var(--olive); }
+    .nav-cta, .button { background:var(--olive); color:white; border-radius:999px; padding:13px 21px; font-size:13px; font-weight:600; display:inline-flex; justify-content:center; align-items:center; border:0; cursor:pointer; transition:transform .2s, background .2s; }
+    .nav-cta:hover, .button:hover { background:var(--deep); transform:translateY(-2px); }
+    .hero { max-width:1180px; margin:auto; padding:42px 6% 78px; display:grid; grid-template-columns:1.05fr .95fr; gap:46px; align-items:center; }
+    .eyebrow { color:var(--olive); text-transform:uppercase; letter-spacing:.19em; font-size:11px; font-weight:700; }
+    h1, h2, h3 { font-family:"Playfair Display", serif; font-weight:600; }
+    h1 { font-size:clamp(44px, 6vw, 76px); line-height:1.04; letter-spacing:-.045em; margin:19px 0 22px; max-width:570px; }
+    h1 em { color:var(--olive); font-weight:500; }
+    .hero-copy { color:var(--muted); font-size:16px; line-height:1.8; max-width:450px; margin-bottom:29px; }
+    .hero-buttons { display:flex; align-items:center; flex-wrap:wrap; gap:13px; }
+    .button-light { border:1px solid #d7d1c1; color:var(--deep); background:transparent; }
+    .button-light:hover { background:#f0e8d9; }
+    .micro-note { margin-top:22px; color:var(--muted); font-size:12px; }
+    .hero-art { min-height:420px; background:#eee5d4; border-radius:48% 48% 22px 22px; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+    .sun { position:absolute; width:250px; height:250px; border-radius:50%; background:#e7c96f; top:48px; right:36px; opacity:.75; }
+    .fruit-orb { position:absolute; width:220px; height:270px; border-radius:52% 48% 57% 43%; background:linear-gradient(140deg,#f4d66d 0%,#edb64f 55%,#df8745 100%); transform:rotate(19deg); box-shadow:inset -20px -12px 0 #d68d43; z-index:2; }
+    .fruit-leaf { position:absolute; z-index:3; width:78px; height:35px; background:var(--olive); border-radius:100% 0 100% 0; top:75px; left:calc(50% + 18px); transform:rotate(-25deg); }
+    .fruit-shine { position:absolute; z-index:4; width:20px; height:60px; background:#fff1c6; border-radius:50%; transform:rotate(24deg); top:170px; left:calc(50% - 63px); opacity:.72; }
+    .hero-sticker { position:absolute; z-index:5; bottom:48px; left:25px; padding:16px 19px; background:var(--paper); border-radius:18px; box-shadow:0 12px 35px #5b53301a; transform:rotate(-5deg); }
+    .hero-sticker strong { display:block; font-family:"Playfair Display",serif; font-size:20px; }
+    .hero-sticker span { color:var(--muted); font-size:11px; }
+    .floating-tag { position:absolute; z-index:5; top:43px; left:28px; border:1px solid #d6c9ad; border-radius:50%; width:90px; height:90px; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--olive); font-size:10px; line-height:1.5; transform:rotate(-12deg); }
+    .section { padding:78px 6%; }
+    .section-inner { max-width:1080px; margin:auto; }
+    .section-heading { text-align:center; max-width:560px; margin:0 auto 38px; }
+    h2 { font-size:clamp(34px,4vw,48px); margin:12px 0; letter-spacing:-.035em; }
+    .section-heading p { color:var(--muted); line-height:1.7; font-size:14px; }
+    .products { background:#f4ecdf; }
+    .product-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+    .product-card { background:var(--paper); border-radius:18px; padding:14px 14px 20px; border:1px solid #ece2d2; transition:transform .25s, box-shadow .25s; }
+    .product-card:hover { transform:translateY(-5px); box-shadow:0 14px 28px #4d452010; }
+    .product-art { height:165px; border-radius:13px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; margin-bottom:18px; }
+    .art-1 { background:#ead9a9; } .art-2 { background:#dce0c8; } .art-3 { background:#f0d2b8; } .art-4 { background:#e5d9c9; }
+    .cup { width:85px; height:100px; background:linear-gradient(90deg,#fff9e9,#fffdf5); border:2px solid #fff; border-radius:10px 10px 23px 23px; position:relative; box-shadow:0 12px 20px #5a4d2920; transform:rotate(-4deg); }
+    .cup:before { content:""; position:absolute; top:-7px; left:-5px; width:91px; height:13px; border-radius:8px; background:#f5eee0; border:1px solid #d7ccb5; }
+    .fruit-bit { position:absolute; width:30px; height:24px; background:#edbc52; border-radius:50% 40% 45% 40%; top:14px; left:9px; box-shadow:22px 8px 0 #e79d48, 10px 35px 0 #e7c95d, 35px 42px 0 #d9a04a; }
+    .sauce { position:absolute; width:80px; height:8px; background:#b16e43; top:31px; left:2px; border-radius:50%; transform:rotate(-8deg); }
+    .bowl { width:115px; height:66px; border-radius:10px 10px 55px 55px; background:#fff9e9; border:3px solid #fff; position:relative; box-shadow:0 12px 20px #5a4d2920; }
+    .bowl:before { content:""; position:absolute; top:-10px; left:-5px; width:119px; height:16px; border-radius:50%; background:#f6e5b8; border:2px solid #fffaf0; }
+    .bowl .fruit-bit { top:-7px; left:15px; }
+    .product-card h3 { margin:0 0 7px; font-size:21px; }
+    .product-price { color:var(--olive); font-size:21px; font-weight:700; letter-spacing:-.03em; margin:0 0 10px; }
+    .product-size { color:var(--muted); font-size:11px; margin:-3px 0 12px; }
+    .delivery-note { text-align:center; color:var(--muted); font-size:12px; margin-top:22px; }
+    .product-card p { color:var(--muted); font-size:12px; line-height:1.65; min-height:40px; margin:0 0 15px; }
+    .text-link { color:var(--olive); font-size:12px; font-weight:700; letter-spacing:.03em; }
+    .story { display:grid; grid-template-columns:.9fr 1.1fr; gap:60px; align-items:center; }
+    .story-visual { background:#e7dfcf; border-radius:22px; min-height:310px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+    .story-visual .sun { width:220px; height:220px; top:45px; right:auto; }
+    .story-visual .fruit-orb { width:155px; height:190px; }
+    .story-text p { color:var(--muted); font-size:14px; line-height:1.9; }
+    .values { display:flex; gap:22px; flex-wrap:wrap; margin-top:24px; }
+    .value { display:flex; align-items:center; gap:8px; font-size:12px; font-weight:600; }
+    .value-dot { width:8px; height:8px; border-radius:50%; background:var(--yellow); }
+    .banner { padding:0 6% 78px; }
+    .banner-inner { max-width:1080px; margin:auto; border-radius:22px; background:var(--olive); color:#fffaf2; padding:42px 48px; display:flex; justify-content:space-between; align-items:center; gap:25px; }
+    .banner h2 { font-size:clamp(30px,4vw,42px); margin:0 0 8px; }
+    .banner p { margin:0; color:#e4e6d9; font-size:13px; line-height:1.7; }
+    .banner .button { background:#f8edcf; color:var(--deep); flex-shrink:0; }
+    footer { background:#eee5d6; padding:35px 6%; }
+    .footer-inner { max-width:1080px; margin:auto; display:flex; justify-content:space-between; gap:20px; align-items:center; flex-wrap:wrap; }
+    .footer-copy { color:var(--muted); font-size:11px; line-height:1.7; }
+    .social { display:flex; gap:18px; color:var(--olive); font-size:12px; font-weight:700; }
+    .notice { font-size:11px; color:var(--muted); text-align:center; margin-top:18px; }
+    @media (max-width:850px) {
+      nav { gap:14px; } nav a:not(.nav-cta) { display:none; }
+      .hero { grid-template-columns:1fr; padding-top:22px; gap:35px; }
+      .hero-art { min-height:360px; }
+      .product-grid { grid-template-columns:repeat(2,1fr); }
+      .story { grid-template-columns:1fr; gap:30px; }
+      .story-visual { min-height:280px; }
+      .banner-inner { padding:32px; }
+    }
+    @media (max-width:480px) {
+      header { padding:18px 5%; } .brand { font-size:24px; }
+      .nav-cta { padding:11px 14px; font-size:11px; }
+      .hero { padding:25px 5% 55px; }
+      .hero-art { min-height:320px; }
+      .fruit-orb { width:175px; height:220px; }
+      .sun { width:200px; height:200px; }
+      .section { padding:58px 5%; }
+      .product-grid { gap:10px; }
+      .product-card { padding:10px 10px 16px; }
+      .product-art { height:130px; }
+      .product-card h3 { font-size:18px; }
+      .product-card p { font-size:11px; }
+      .banner { padding:0 5% 55px; }
+      .banner-inner { display:block; padding:28px 24px; }
+      .banner .button { margin-top:22px; }
+      .floating-tag { width:72px; height:72px; font-size:9px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement">Un antojito bonito para alegrarte el día ✿</div>
+  <header>
+    <a class="brand" href="#inicio" aria-label="Mangolía, inicio"><span class="brand-fruit"></span> mangolía</a>
+    <nav aria-label="Navegación principal">
+      <a href="#productos">Menú</a>
+      <a href="#nosotros">Nuestra esencia</a>
+      <a href="#contacto">Contacto</a>
+      <a class="nav-cta order-link" href="#contacto">Haz tu pedido ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div>
+        <div class="eyebrow">Fruta · sabor · momentos felices</div>
+        <h1>Pequeños antojos,<br><em>grandes sonrisas.</em></h1>
+        <p class="hero-copy">Bienvenido a Mangolía, un rinconcito de sabores frutales donde cada combinación se prepara para disfrutar, compartir y darte un gusto.</p>
+        <div class="hero-buttons">
+          <a class="button order-link" href="#contacto">Quiero pedir <span aria-hidden="true">&nbsp;↗</span></a>
+          <a class="button button-light" href="#productos">Explorar el menú</a>
+        </div>
+        <div class="micro-note">Hecho con cariño y ese toque tropical que encanta.</div>
+      </div>
+      <div class="hero-art" aria-label="Ilustración decorativa de un mango">
+        <div class="sun"></div><div class="floating-tag">FRESCO<br>Y DELICIOSO<br>✳</div>
+        <div class="fruit-orb"></div><div class="fruit-leaf"></div><div class="fruit-shine"></div>
+        <div class="hero-sticker"><strong>Un mood tropical</strong><span>Tu nuevo antojo favorito</span></div>
+      </div>
+    </section>
+
+    <section class="section products" id="productos">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div class="eyebrow">Nuestro menú</div>
+          <h2>¿Qué se te antoja hoy?</h2>
+          <p>Elige tu favorito, combina tus toppings y haz de cada antojo un momento especial.</p>
+        </div>
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-art art-1"><div class="cup"><div class="fruit-bit"></div><div class="sauce"></div></div></div>
+            <h3>Mangos locos</h3>
+            <div class="product-price">$10.000 COP</div>
+            <div class="product-size">Varios tamaños · consultar precio según tamaño</div>
+            <p>Mango preparado con combinaciones llenas de sabor y ese toque especial.</p>
+            <a class="text-link order-link" href="#contacto" data-product="Mangos locos">Pedir este antojo ↗</a>
+          </article>
+          <article class="product-card">
+            <div class="product-art art-2"><div class="cup"><div class="fruit-bit"></div><div class="sauce" style="background:#e2c96a;top:48px"></div></div></div>
+            <h3>Vasitos frutales</h3>
+            <div class="product-price">$8.000 COP</div>
+            <div class="product-size">Varios tamaños · consultar precio según tamaño</div>
+            <p>Una mezcla colorida de frutas para disfrutar a cualquier hora.</p>
+            <a class="text-link order-link" href="#contacto" data-product="Vasitos frutales">Pedir este antojo ↗</a>
+          </article>
+          <article class="product-card">
+            <div class="product-art art-3"><div class="bowl"><div class="fruit-bit"></div></div></div>
+            <h3>Bandejas frutales</h3>
+            <div class="product-price">$25.000 COP</div>
+            <div class="product-size">Varios tamaños · consultar precio según tamaño</div>
+            <p>Una presentación especial para compartir con tus personas favoritas.</p>
+            <a class="text-link order-link" href="#contacto" data-product="Bandejas frutales">Pedir este antojo ↗</a>
+          </article>
+          <article class="product-card">
+            <div class="product-art art-4"><div class="bowl"><div class="fruit-bit"></div><div class="sauce" style="top:15px;left:12px;width:85px"></div></div></div>
+            <h3>Bowls con toppings</h3>
+            <div class="product-price">$12.000 COP</div>
+            <div class="product-size">Varios tamaños · consultar precio según tamaño</div>
+            <p>Fruta, salsitas y toppings para armar una combinación a tu gusto.</p>
+            <a class="text-link order-link" href="#contacto" data-product="Bowls con toppings">Pedir este antojo ↗</a>
+          </article>
+        </div>
+        <p class="delivery-note">Los precios publicados son de referencia para la presentación base. Disponibles varios tamaños; confirma el valor de cada tamaño al hacer tu pedido. El domicilio se cobra aparte.</p>
+      </div>
+    </section>
+
+    <section class="section" id="nosotros">
+      <div class="section-inner story">
+        <div class="story-visual"><div class="sun"></div><div class="fruit-orb"></div><div class="fruit-leaf"></div></div>
+        <div class="story-text">
+          <div class="eyebrow">La esencia Mangolía</div>
+          <h2>Un toque tropical, hecho para ti.</h2>
+          <p>En Mangolía creemos que los pequeños gustos también merecen ser especiales. Por eso reunimos fruta, combinaciones deliciosas y una presentación cuidada para que tu antojo se sienta tan bonito como sabe.</p>
+          <p>¿Te gusta lo dulce, lo frutal o probar nuevas mezclas? Aquí puedes encontrar tu próxima combinación favorita.</p>
+          <div class="values"><div class="value"><span class="value-dot"></span>Preparado con cariño</div><div class="value"><span class="value-dot"></span>Combinaciones a tu gusto</div><div class="value"><span class="value-dot"></span>Un estilo muy tropical</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="banner" id="contacto">
+      <div class="banner-inner">
+        <div><h2>Tu próximo antojo te espera.</h2><p>Escríbenos para consultar sabores, toppings, disponibilidad y precios.</p></div>
+        <a class="button order-link" href="https://wa.me/" target="_blank" rel="noopener">Pedir por WhatsApp ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <a class="brand" href="#inicio"><span class="brand-fruit"></span> mangolía</a>
+        <div class="footer-copy">Antojos frutales con un toque especial.</div>
+      </div>
+      <div class="social"><a href="#contacto">Contacto</a><a href="#productos">Menú</a><a href="#inicio">Volver arriba ↑</a></div>
+    </div>
+    <div class="notice">© <span id="year"></span> Mangolía. Todos los derechos reservados.</div>
+  </footer>
+  <script>
+    // PERSONALIZA AQUÍ: escribe el número de WhatsApp con código de país, solo números.
+    // Ejemplo Colombia: 573001234567
+    const WHATSAPP_NUMBER = "573015392742";
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.querySelectorAll(".order-link").forEach(link => {
+      const product = link.dataset.product || "";
+      link.addEventListener("click", function(event) {
+        if (!WHATSAPP_NUMBER) {
+          if (this.getAttribute("href") === "#contacto" && !product) return;
+          event.preventDefault();
+          document.getElementById("contacto").scrollIntoView({behavior:"smooth"});
+          alert("¡Esta web está lista para personalizar! Agrega tu número de WhatsApp en el código para activar los pedidos.");
+          return;
+        }
+        event.preventDefault();
+        const message = product
+          ? `¡Hola, Mangolía! Quiero información sobre ${product}.`
+          : "¡Hola, Mangolía! Quiero hacer un pedido.";
+        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank", "noopener");
+      });
+    });
+  </script>
+</body>
+</html>
